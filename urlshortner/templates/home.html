@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="static/url.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL shortener</title>
+  </head>
+  <body>
+    <div class="center">
+      <div class="container">
+        <h1>URL-Shortener</h1>
+
+        {% for message in get_flashed_messages() %}
+        <h3>{{ message }}</h3>
+        {% endfor %}
+        <!-- action is the attribute of a form which specifies where the form will submit the data /The path is set as the action. -->
+        <form action="your-url" method="post">
+          <table>
+            <tr>
+              <label for="url">Website URL</label>
+            </tr>
+            <br />
+            <tr>
+              <input
+                type="url"
+                name="url"
+                value=""
+                placeholder="Paste your url"
+                required
+              />
+            </tr>
+            <br />
+            <tr>
+              <label for="code">Short URL</label>
+            </tr>
+            <br />
+            <tr>
+              <input
+                type="text"
+                name="code"
+                value=""
+                placeholder="Shortened code"
+                required
+              />
+            </tr>
+            <br />
+            <tr>
+              <input class="submit" type="submit" value="Shorten" />
+            </tr>
+          </table>
+        </form>
+
+        <!-- ***** -->
+        <form action="your-url" method="post" enctype="multipart/form-data">
+          <table>
+            <tr>
+              <label for="file">File</label>
+            </tr>
+            <br />
+            <tr>
+              <input
+                type="file"
+                name="file"
+                value=""
+                placeholder="Paste your url"
+                required
+              />
+            </tr>
+            <br />
+            <tr>
+              <label for="code">Short URL</label>
+            </tr>
+            <br />
+            <tr>
+              <input
+                type="text"
+                name="code"
+                value=""
+                placeholder="Shortened code"
+                required
+              />
+            </tr>
+            <br />
+            <tr>
+              <input class="submit" type="submit" value="Shorten" />
+            </tr>
+          </table>
+        </form>
+        {% if codes %}
+        <!-- <h2>Previous Codes</h2> -->
+        <ul>
+          <li>{{ code }}</li>
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>
